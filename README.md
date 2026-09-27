@@ -40,6 +40,14 @@ The request bridge is a Vite middleware (`server/bridge.js`) mounted in both `co
 - 59 unit tests covering the crypt5/legacy encryption round trips, link parsing and editing, converters, and the HWID header contract.
 - 10 Playwright browser tests covering the editor workflow, error handling, language switching, identity persistence, and mobile layout.
 
+## Support / Donate
+
+If this project helped you, consider a donation — **USDT on the TON network** (Tonkeeper, @wallet, any TON wallet):
+
+```text
+UQCcN9hahBxM5q3GGwx79UNEu82EF0kFTwnRRklL_1OLtK15
+```
+
 ## Disclaimer
 
 Educational project: it demonstrates how `happ://` link encryption and HWID device counting work. You are responsible for complying with your provider's terms and applicable law. Not affiliated with Happ or Remnawave; no warranty (see [LICENSE](LICENSE)).

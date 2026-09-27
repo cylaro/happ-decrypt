@@ -1,5 +1,8 @@
 import { initEditor } from './ui/editor.js';
+import { copyText, showToast, t } from './ui/util.js';
 import './style.css';
+
+const DONATE_ADDRESS = 'UQCcN9hahBxM5q3GGwx79UNEu82EF0kFTwnRRklL_1OLtK15';
 
 const root = document.documentElement;
 root.dataset.lang = ['ru', 'en'].includes(root.dataset.lang) ? root.dataset.lang : 'ru';
@@ -25,6 +28,10 @@ function route() {
   });
 }
 window.addEventListener('hashchange', route);
+document.getElementById('support-address').addEventListener('click', async () => {
+  const copied = await copyText(DONATE_ADDRESS);
+  showToast(copied ? t('Donation address copied — thank you!', 'Адрес для доната скопирован — спасибо!') : t(DONATE_ADDRESS, DONATE_ADDRESS), copied ? 'ok' : 'error');
+});
 syncLanguage();
 initEditor();
 route();

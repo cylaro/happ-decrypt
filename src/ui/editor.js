@@ -38,9 +38,30 @@ export function initEditor() {
   let responseAvailable = false;
 
   function status(id, message, kind = 'ok') {
-    $(id).textContent = message;
+    $(id).textContent = kind === 'error' ? localizeError(message) : message;
     $(id).dataset.kind = kind;
   }
+
+  const ERROR_I18N = [
+    [/prepare the encrypted link/i, 'Сначала расшифруйте ссылку.'],
+    [/unsupported link/i, 'Неподдерживаемая ссылка'],
+    [/not a supported link/i, 'Неподдерживаемая ссылка'],
+    [/invalid target url/i, 'Некорректный адрес панели'],
+    [/token must be a full https panel url/i, 'Нужен полный https-адрес панели'],
+    [/only https targets/i, 'Поддерживаются только https-панели'],
+    [/target host is not allowed/i, 'Домен панели не разрешён (ALLOWED_HOSTS)'],
+    [/credentials in target url/i, 'Логины и пароли в адресе панели недопустимы'],
+    [/panel_base is not configured/i, 'PANEL_BASE не задан (нужен для коротких токенов)'],
+    [/timed out/i, 'Превышено время ожидания'],
+    [/upstream error/i, 'Ошибка на стороне панели или прокси'],
+    [/upstream response too large/i, 'Ответ слишком большой (лимит 2 МиБ)'],
+    [/failed to fetch|networkerror/i, 'Сеть недоступна или запрос заблокирован (проверьте VPN и маршрут)'],
+  ];
+  const localizeError = (message) => {
+    if (document.documentElement.lang !== 'ru') return message;
+    const match = ERROR_I18N.find(([pattern]) => pattern.test(message));
+    return match ? match[1] : message;
+  };
 
   function syncButtons() {
     const route = $('request-route').value;
@@ -277,7 +298,10 @@ export function initEditor() {
     $('request-custom-proxy').value = localStorage.getItem(CUSTOM_PROXY_KEY) || '';
   } catch { /* optional */ }
   $('request-route').addEventListener('change', applyRoute);
-  $('request-url').addEventListener('input', syncButtons);
+  $('request-url').addEventListener('input', () => {
+    if ($('destination').value !== $('request-url').value) $('destination').value = $('request-url').value;
+    syncButtons();
+  });
   $('request-custom-proxy').addEventListener('input', () => {
     syncButtons();
     try { localStorage.setItem(CUSTOM_PROXY_KEY, $('request-custom-proxy').value); } catch { /* optional */ }
