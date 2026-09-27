@@ -28,10 +28,11 @@ function route() {
   });
 }
 window.addEventListener('hashchange', route);
-document.getElementById('support-address').addEventListener('click', async () => {
+async function donateAddressClick() {
   const copied = await copyText(DONATE_ADDRESS);
   showToast(copied ? t('Donation address copied — thank you!', 'Адрес для доната скопирован — спасибо!') : t(DONATE_ADDRESS, DONATE_ADDRESS), copied ? 'ok' : 'error');
-});
+}
+document.getElementById('support-address').addEventListener('click', donateAddressClick);
 syncLanguage();
 initEditor();
 route();
