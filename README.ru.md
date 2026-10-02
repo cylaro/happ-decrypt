@@ -58,5 +58,5 @@ UQCcN9hahBxM5q3GGwx79UNEu82EF0kFTwnRRklL_1OLtK15
 
 ## Связанные проекты
 
-- **[hwid-relay](https://github.com/cylaro/hwid-relay)** — сопутствующий проект: самостоятельно размещаемый Cloudflare Worker, позволяющий неограниченному числу устройств делить одну HWID-идентичность на панелях с лимитами.
-- **[hwid-relay-vercel](https://github.com/cylaro/hwid-relay-vercel)** — тот же релей «много устройств — один HWID» на Vercel, для сетей, где Cloudflare неудобен.
+- **[happ-relay-cloudflare](https://github.com/cylaro/happ-relay-cloudflare)** — сопутствующий проект: самостоятельно размещаемый Cloudflare Worker, позволяющий неограниченному числу устройств делить одну HWID-идентичность на панелях с лимитами.
+- **[happ-relay-cloudflare-vercel](https://github.com/cylaro/happ-relay-cloudflare-vercel)** — тот же релей «много устройств — один HWID» на Vercel, для сетей, где Cloudflare неудобен.
