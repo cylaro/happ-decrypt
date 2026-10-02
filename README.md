@@ -1,6 +1,6 @@
 # Happ Link Decryptor
 
-[Live preview](https://cylaro.github.io/happ-decryptor/) · [Report an issue](https://github.com/cylaro/happ-decryptor/issues)
+[Live preview](https://cylaro.github.io/happ-decrypt/) · [Report an issue](https://github.com/cylaro/happ-decrypt/issues)
 
 A browser-based workbench for `happ://` deep links: decrypt encrypted subscription links, edit the destination URL, re-encrypt through the official Happ API, and convert between client import formats. All cryptographic operations run locally in the browser.
 

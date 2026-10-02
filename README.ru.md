@@ -1,6 +1,6 @@
 # Happ Link Decryptor
 
-[Live preview](https://cylaro.github.io/happ-decryptor/) · [Report an issue](https://github.com/cylaro/happ-decryptor/issues)
+[Live preview](https://cylaro.github.io/happ-decrypt/) · [Report an issue](https://github.com/cylaro/happ-decrypt/issues)
 
 Браузерный рабочий стол для `happ://` deep-link-ссылок: расшифровка зашифрованных ссылок подписки, редактирование URL назначения, повторное шифрование через официальный Happ API и конвертация между форматами импорта клиентов. Все криптографические операции выполняются локально в браузере.
 
